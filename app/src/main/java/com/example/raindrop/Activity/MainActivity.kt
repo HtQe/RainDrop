@@ -9,6 +9,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.raindrop.Adapter.HourlyAdapter
+import com.example.raindrop.Adapter.OtherCityAdapter
+import com.example.raindrop.Model.CityModel
 import com.example.raindrop.Model.HourlyModel
 import com.example.raindrop.R
 import com.example.raindrop.databinding.ActivityMainBinding
@@ -33,7 +35,32 @@ class MainActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
                         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
+
         initRecyclerviewHourly()
+        initRecyclerOtherCity()
+    }
+
+    private fun initRecyclerOtherCity() {
+        val items:ArrayList<CityModel> =ArrayList()
+
+        items.add(CityModel("Amman", 28, "sunny", 20, 40, 10))
+        items.add(CityModel("Zarqa", 30, "sunny", 22, 35, 5))
+        items.add(CityModel("Irbid", 26, "partly_cloudy", 18, 45, 15))
+        items.add(CityModel("Mafraq", 29, "sunny", 25, 30, 8))
+        items.add(CityModel("Jerash", 24, "cloudy", 15, 50, 20))
+        items.add(CityModel("Ajloun", 23, "cloudy", 14, 55, 25))
+        items.add(CityModel("Balqa", 27, "partly_cloudy", 19, 42, 12))
+        items.add(CityModel("Karak", 25, "sunny", 17, 38, 10))
+        items.add(CityModel("Tafilah", 24, "partly_cloudy", 16, 43, 18))
+        items.add(CityModel("Ma'an", 32, "sunny", 28, 25, 3))
+        items.add(CityModel("Aqaba", 35, "sunny", 30, 20, 2))
+        items.add(CityModel("Madaba", 27, "partly_cloudy", 20, 40, 10))
+        items.add(CityModel("Anjara", 23, "cloudy", 14, 52, 22))
+        items.add(CityModel("Ramtha", 26, "sunny", 19, 37, 9))
+        items.add(CityModel("Sweileh", 28, "partly_cloudy", 21, 39, 11))
+
+        binding.view2.layoutManager= LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
+        binding.view2.adapter= OtherCityAdapter(items)
     }
 
     private fun initRecyclerviewHourly() {

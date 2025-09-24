@@ -29,7 +29,11 @@ class HourlyAdapter(private val items:ArrayList<HourlyModel>)
     }
 
     override fun onBindViewHolder(holder:HourlyAdapter.Viewholder,position: Int) {
-      val item=items[position]
+        if (position < 0 || position >= items.size) {
+            // يمكنك هنا تسجيل خطأ أو التعامل مع الحالة بشكل مناسب
+            return
+        }
+        val item=items[position]
         holder.binding.apply {
             hourTxt.text=item.hour
             tempTxt.text="${item.temp}"
