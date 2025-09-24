@@ -33,6 +33,11 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    android {
+        buildFeatures {
+            viewBinding = true
+        }
+    }
 }
 
 dependencies {
@@ -42,7 +47,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.recyclerview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.github.ismaeldivita:chip-navigation-bar:1.4.0")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
 }
